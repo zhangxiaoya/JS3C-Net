@@ -82,7 +82,7 @@ if use_cuda:
     classifier = classifier.cuda()
 classifier = classifier.eval()
 
-training_epoch = scn.checkpoint_restore(classifier, model_path, use_cuda)
+training_epoch = scn.checkpoint_restore(classifier, model_path + "/mode", "seg", use_cuda=use_cuda)
 print('#classifer parameters %d' % sum([x.nelement() for x in classifier.parameters()]))
 
 '''Load Dataset'''
